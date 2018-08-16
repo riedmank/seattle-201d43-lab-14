@@ -6,8 +6,9 @@ var table = document.getElementById('cart');
 table.addEventListener('click', removeItemFromCart);
 var cart;
 
+var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
 function loadCart() {
-  var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
   cart = new Cart(cartItems);
 }
 
@@ -25,11 +26,31 @@ function clearCart() {}
 function showCart() {
 
   // TODO: Find the table body
-
+  var body = document.getElementsByTagName('tbody')[0];
+  // var table = document.getElementById('cart');
   // TODO: Iterate over the items in the cart
-  // TODO: Create a TR
-  // TODO: Create a TD for the delete link, quantity,  and the item
-  // TODO: Add the TR to the TBODY and each of the TD's to the TR
+  for (var i = 0; i < cart.items.length; i++){
+    // TODO: Create a TR
+    var tr = document.createElement('tr');
+
+    // TODO: Create a TD for the delete link, quantity,  and the item
+    var itemName = document.createElement('td');
+    var itemQuantity = document.createElement('td');
+    var deleteItem = document.createElement('td');
+
+    itemName.textContent = cart.items[i].product;
+    itemQuantity.textContent = cart.items[i].quantity;
+    deleteItem.textContent = 'Placeholder';
+
+    tr.appendChild(deleteItem);
+    tr.appendChild(itemQuantity);
+    tr.appendChild(itemName);
+
+    // TODO: Add the TR to the TBODY and each of the TD's to the TR
+    body.appendChild(tr);
+
+    console.log(cart.items[i]);
+  }
 
 }
 
