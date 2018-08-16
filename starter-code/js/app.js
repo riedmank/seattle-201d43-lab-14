@@ -6,9 +6,9 @@ var Cart = function(items) {
   this.items = items;
 };
 
-Cart.prototype.addItem = function(product, quantity) {
+Cart.prototype.addItem = function(product, quantity, filepath) {
   //Complete // TODO: Fill in this instance method to create a new CartItem and add it to this.items
-  var boughtItem = new CartItem(product, quantity);
+  var boughtItem = new CartItem(product, quantity, filepath);
   cart.items.push(boughtItem);
 };
 
@@ -30,9 +30,10 @@ Cart.prototype.removeItem = function(item) {
   console.log(cartItems);
 };
 
-var CartItem = function(product, quantity) {
+var CartItem = function(product, quantity, filepath) {
   this.product = product;
   this.quantity = quantity;
+  this.filepath = filepath;
 };
 
 // Product contructor.
