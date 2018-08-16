@@ -32,6 +32,7 @@ function handleSubmit(e) {
   cart.saveToLocalStorage();
   updateCounter();
   updateCartPreview();
+  document.getElementById('quantity').reset();
 }
 
 //Complete // TODO: Add the selected item and quantity to the cart
@@ -77,3 +78,15 @@ catalogForm.addEventListener('submit', handleSubmit);
 // Before anything else of value can happen, we need to fill in the select
 // drop down list in the form.
 populateForm();
+
+var cartLoad = JSON.parse(localStorage.getItem('cartItems'));
+if(cartLoad) {
+  var sum = 0;
+  for(var i = 0; i < cartLoad.length; i++) {
+    var li = document.createElement('li');
+    li.textContent = `${cartLoad[i].product} ${cartLoad[i].quantity}`;
+    ul.appendChild(li);
+    sum += parseInt(cartLoad[i].quantity);
+  }
+  counter.textContent = sum;
+}
