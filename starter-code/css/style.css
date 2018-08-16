@@ -6,6 +6,7 @@
 
 body {
   background-color: #b6b6b6;
+  min-width: 1250px;
 }
 
 nav {
