@@ -32,7 +32,8 @@ function handleSubmit(e) {
   cart.saveToLocalStorage();
   updateCounter();
   updateCartPreview();
-  document.getElementById('quantity').reset();
+  var reset = document.getElementById('quantity');
+  reset.reset();
 }
 
 //Complete // TODO: Add the selected item and quantity to the cart
