@@ -14,6 +14,7 @@ function populateForm() {
   for (var i in Product.allProducts) {
     var item = document.createElement('option');
     item.textContent = Product.allProducts[i].name;
+    item.value = Product.allProducts[i].name.toLowerCase();
     selectElement.appendChild(item);
   }
 
@@ -37,10 +38,13 @@ function handleSubmit(e) {
 
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
-  // TODO: suss out the item picked from the select list
-
-  // TODO: get the quantity
+  //Complete // TODO: suss out the item picked from the select list
+  var element = document.getElementById('items');
+  var item = element.options[element.selectedIndex].value;
+  //Complete // TODO: get the quantity
+  var quantity = document.getElementById('quantity').value;
   // TODO: using those, add one item to the Cart
+  cart.addItem(item, quantity);
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
