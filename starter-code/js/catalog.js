@@ -17,7 +17,6 @@ function populateForm() {
     item.value = Product.allProducts[i].name;
     selectElement.appendChild(item);
   }
-
 }
 
 // When someone submits the form, we need to add the selected item to the cart
@@ -33,7 +32,6 @@ function handleSubmit(e) {
   cart.saveToLocalStorage();
   updateCounter();
   updateCartPreview();
-
 }
 
 //Complete // TODO: Add the selected item and quantity to the cart
@@ -42,17 +40,17 @@ function addSelectedItemToCart() {
   var element = document.getElementById('items');
   var item = element.options[element.selectedIndex].value;
   //Complete // TODO: get the quantity
-  var quantity = parseInt(document.getElementById('quantity').value);
+  var quantity = document.getElementById('quantity').value;
   //Complete // TODO: using those, add one item to the Cart
   cart.addItem(item, quantity);
 }
 
 var counter = document.getElementById('itemCount');
 counter.textContent = 0;
-// TODO: Update the cart count in the header nav with the number of items in the Cart
+//Complete // TODO: Update the cart count in the header nav with the number of items in the Cart
 function updateCounter() {
   var counter = document.getElementById('itemCount');
-  counter.textContent = parseInt(counter.textContent) + 1;
+  counter.textContent = parseInt(counter.textContent) + parseInt(document.getElementById('quantity').value);
 }
 
 //Complete // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
@@ -63,7 +61,7 @@ function updateCartPreview() {
   //Complete // TODO: Get the item and quantity from the form
   var cartItem = document.getElementById('items');
   var item = cartItem.options[cartItem.selectedIndex].value;
-  var quantity = parseInt(document.getElementById('quantity').value);
+  var quantity = document.getElementById('quantity').value;
   //Complete // TODO: Add a new element to the cartContents div with that information
   var li = document.createElement('li');
   li.textContent = `${item} ${quantity}`;
