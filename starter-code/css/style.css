@@ -6,6 +6,7 @@
 
 body {
   background-color: #b6b6b6;
+  min-width: 1250px;
 }
 
 nav {
@@ -143,7 +144,6 @@ fieldset {
   height: 400px;
 }
 
-
 label {
   display: block;
   text-align: left;
@@ -161,16 +161,20 @@ input[type='submit'] {
   color: #eeeeee;
   margin: 10px auto;
   border: none;
-  background-color: #43a046;
   height: 50px;
   font-size: 24px;
   width: 200px;
+  background: #2db34a;
+  transition-property: background, border-radius;
+  transition-duration: 1s;
+  transition-timing-function: linear;
 }
 
 input[type='submit']:hover {
-  background-color: #46ac4a;
   cursor: pointer;
   box-shadow: 0 1px 2px #777777;
+  background: #61038d;
+  border-radius: 50%;
 }
 
 form {
@@ -182,4 +186,8 @@ label span {
   margin-left: 40%;
   display: inline-block;
   width: 100px;
+}
+
+#itemCount {
+  margin-left: 10px;
 }
