@@ -43,10 +43,29 @@ function showCart() {
     var tr = document.createElement('tr');
 
     // TODO: Create a TD for the delete link, quantity,  and the item
-    var itemName = document.createElement('td');
+    // var itemName = document.createElement('td');
     var itemQuantity = document.createElement('td');
     var deleteItem = document.createElement('td');
 
+    var itemImage = document.createElement('img');
+    var path;
+
+    // jury rigged filepath... UGH
+    if (item.product.toLowerCase() === 'usb'){
+      path = `assets/${item.product.toLowerCase()}.gif`;
+    } else if (item.product.toLowerCase() === 'sweep') {
+      path = `assets/${item.product.toLowerCase()}.png`;
+    } else if (item.product.toLowerCase() === 'taun-taun') {
+      path = 'assets/tauntaun.jpg';
+    } else if (item.product.toLowerCase() === 'pet sweep') {
+      path = 'assets/pet-sweep.jpg';
+    } else {
+      path = `assets/${item.product.toLowerCase()}.jpg`;
+    }
+    console.log(path);
+    itemImage.src = path;
+    itemImage.style.height = '40px';
+    itemImage.style.width = '40px';
     var deleteButton = document.createElement('button');
 
     deleteButton.addEventListener('click', function(){
@@ -54,13 +73,13 @@ function showCart() {
     });
     deleteButton.textContent = 'X';
 
-    itemName.textContent = item.product;
+    // itemName.textContent = item.product;
     itemQuantity.textContent = item.quantity;
     deleteItem.appendChild(deleteButton);
 
     tr.appendChild(deleteItem);
     tr.appendChild(itemQuantity);
-    tr.appendChild(itemName);
+    tr.appendChild(itemImage);
 
     // TODO: Add the TR to the TBODY and each of the TD's to the TR
     body.appendChild(tr);

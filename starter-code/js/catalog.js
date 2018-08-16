@@ -44,7 +44,14 @@ function addSelectedItemToCart() {
   //Complete // TODO: get the quantity
   var quantity = document.getElementById('quantity').value;
   //Complete // TODO: using those, add one item to the Cart
-  cart.addItem(item, quantity);
+
+  for(var i = 0; i < Product.allProducts.length; i++) {
+    if(item === Product.allProducts[i].product) {
+      var imagePath = Product.allProducts[i].filePath;
+      console.log(imagePath);
+    }
+  }
+  cart.addItem(item, quantity, imagePath);
 }
 
 var counter = document.getElementById('itemCount');
