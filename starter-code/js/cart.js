@@ -26,8 +26,6 @@ function clearCart() {
   while (body.firstChild){
     body.removeChild(body.firstChild);
   }
-  // cartItems = [];
-  // loadCart();
 }
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
